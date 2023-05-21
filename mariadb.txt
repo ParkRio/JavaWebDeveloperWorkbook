@@ -1,0 +1,25 @@
+create table tbl_todo (
+    tno int auto_increment primary key ,
+    title varchar(100) not null ,
+    dueDate date not null ,
+    finished tinyint default 0
+);
+
+insert into tbl_todo (title, dueDate, finished)
+values ('Test...', '2022-12-31', 1);
+
+select * from tbl_todo;
+
+select * from tbl_todo where tno < 10;
+
+update tbl_todo set finished = 0, title = 'Not Yet...' where tno = 3;
+
+delete from tbl_todo where tno > 5;
+
+-- DML 과 select 쿼리의 차이
+-- 프로그램의 설계가 아닌 개발과 운영 단계에서는 DML에 해당하는 insert/update/delete
+-- 그리고 select 문이 가장 많이 사용된다.
+
+-- DML 과 select 쿼리문에는 다음과 같은 차이가 존재한다.
+-- 1. DML은 몇 개의 데이터가 처리되었는지 숫자로 결과를 반환
+-- 2. select 문은 데이터를 반환
